@@ -21,7 +21,8 @@ RUN mkdir -p /data
 VOLUME ["/data"]
 
 COPY --from=builder /go-egem/build/bin/egem /usr/local/bin/egem
+ADD https://gitlab.com/ethergem/egem-configs/raw/master/config.toml /root/data/
 
-EXPOSE 30666
+EXPOSE 8895 8896 8898 30666
 
-ENTRYPOINT ["egem", "--datadir=/data"]
+ENTRYPOINT ["egem", "--datadir=/data", "--config=/root/data/config.toml"]
