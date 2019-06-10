@@ -1,4 +1,4 @@
-FROM arm32v7/golang1.12-alpine3.9 as builder
+FROM arm32v7/golang:1.12-alpine3.9 as builder
 COPY qemu-arm-static /usr/bin
 
 LABEL author="buzzkillb"
@@ -15,7 +15,7 @@ RUN git clone https://gitlab.com/ethergem/go-egem.git /go-egem && \
     make -C /go-egem egem
 
 # final image
-FROM arm32v7/golang1.12-alpine3.9 as builder
+FROM arm32v7/golang:1.12-alpine3.9 as builder
 COPY qemu-arm-static /usr/bin
 
 RUN mkdir -p /data
