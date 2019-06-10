@@ -25,4 +25,4 @@ ADD https://gitlab.com/ethergem/egem-configs/raw/master/config.toml /root/data/
 
 EXPOSE 8895 8896 8898 30666
 
-ENTRYPOINT ["egem", "--datadir=/data", "--config=/root/data/config.toml"]
+ENTRYPOINT ["egem", "--syncmode=full", "--gcmode=archive", "--datadir=/data", "--config=/root/data/config.toml"]
